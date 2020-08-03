@@ -1,0 +1,35 @@
+Data20$Count <- 1
+Data24 <- Data20 %>% group_by(Job)%>%summarise(NumJob=sum(Count))%>%
+                     mutate(Percent=round(NumJob/sum(NumJob)*100))
+
+Data21$Count <- 1
+Data25 <- Data21 %>% group_by(Job)%>%summarise(NumJob=sum(Count))%>%
+  mutate(Percent=round(NumJob/sum(NumJob)*100))
+
+Final28 <- ggplot(Data24,aes(x=2,y=Percent, fill=reorder(Job,NumJob)))+
+           geom_bar(width=1,stat='identity',show.legend = FALSE)+
+           geom_text(aes(label=paste0(Percent,"%")),position = position_stack(vjust=0.5))+
+           labs(title = "Data Science Positions 2020",x=NULL,y=NULL)+
+           theme_classic()+
+           coord_polar("y")+
+           theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),axis.line = element_blank(),
+           axis.text=element_blank(),axis.ticks = element_blank(),legend.title = element_text(colour="black", 
+           size=12,face="bold"),legend.text = element_text(colour="black", size=12, face="bold"))+
+           scale_fill_brewer()+
+           xlim(0.5,2.5) 
+
+Final29 <- ggplot(Data25,aes(x=2,y=Percent, fill=reorder(Job,NumJob)))+
+           geom_bar(width=1,stat='identity')+
+           geom_text(aes(label=paste0(Percent,"%")),position = position_stack(vjust=0.5))+
+           labs(title = "Data Science Positions 2019",x=NULL,y=NULL)+
+           theme_classic()+
+           coord_polar("y")+
+           theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),axis.line = element_blank(),
+           axis.text=element_blank(),axis.ticks = element_blank(),legend.position = "left",legend.title = element_text(colour="black", 
+           size=12,face="bold"),legend.text = element_text(colour="black", size=12, face="bold"))+
+           guides(fill=guide_legend(title="Job Type"))+
+           scale_fill_brewer()+
+           xlim(0.5,2.5) 
+
+Figure3 <- ggarrange(Final28,Final29,nrow =1, common.legend = TRUE,legend = "bottom")
+Figure3
