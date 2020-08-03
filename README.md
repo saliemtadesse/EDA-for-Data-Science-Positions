@@ -45,3 +45,5 @@ This section portrays a step by step data scrapping approach. The scrapped data 
   
 # Data cleaning
 Values that contain non relevant characters or other information were removed. Inaddition, abbreviated words were converted in to a same format to keep consistency. For some observations the value of state was manually inserted by reffering to the stated city.On the other hand, 212 observation did not include state and salary values hence were removed from the data.
+
+
