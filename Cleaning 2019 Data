@@ -1,0 +1,41 @@
+
+Final20 <- as.data.frame(Final20)
+
+# Convert abrivation in to a single format to maintain consistency 
+Final20$Job_Title <- gsub("Sr.","Senior",Final20$Job_Title)
+Final20$Job_Title <- gsub("Sr","Senior",Final20$Job_Title)
+Final20$Job_Title <- gsub("Jr","Junior",Final20$Job_Title)
+Final20$Job_Title <- gsub("Jr.","Junior",Final20$Job_Title)
+
+#Separate City and State
+Final21 <- separate(Final20,"City_State",paste(c("City","State")),sep = ",")
+
+#Remove unnecessary characters and words
+Final21$salary_Range <- gsub("k","",Final21$salary_Range)
+Final21$salary_Range <- gsub("[$]","",Final21$salary_Range)
+Final22 <- separate(Final21,"salary_Range",paste(c("Minimum_Salary","Maximum_Salary")),sep = "-")
+Final22$Minimum_Salary <- as.numeric(Final22$Minimum_Salary)
+Final22$Maximum_Salary <- as.numeric(Final22$Maximum_Salary)
+Final22$Average_Salary=(Final22$Minimum_Salary+Final22$Maximum_Salary)/2
+Final22$Post_Date = ifelse(grepl("hr",Final22$Post_Date),1,parse_number(Final22$Post_Date))
+
+#Inserted state names based on the given city name
+Final22$State = ifelse(grepl("Arapahoe",Final22$State),"CO",Final22$State)
+Final22$State = ifelse(grepl("Cuyahoga",Final22$State),"OH",Final22$State)
+Final22$State = ifelse(grepl("Mercer",Final22$State),"NJ",Final22$State)
+
+#Removed duplicate rows 
+Final22 <- Final22[-c(3462,3480,3512,3594,3616,3674,3683,3726,3752,3779,3895,3909,9572,11979,12019,
+                      12187,12197,12236,12255,12420,12450,12536,12577,12587,85,157,193,220,274,276,
+                      300,569,591,645,658,685,690,846,860,869,1072,1175,1249,1573,1662,1665,1780,
+                      1800,1814,1975,1982,2067,2235,2323,2446,2501,2530,2644,2766,2973,2993,3157,
+                      3248,3271,3472,3652,3847,4440,4870,5088,5111,5118,5221,5363,5410,5463,5523,
+                      5910,5912,6030,6049,6833,6844,6861,6867,7024,7177,7343,7391,7532,7981,8083,
+                      8248,9465,9516,9579,9702,9705,9762,9830,10192,10214,10220,10283,10739,10767,
+                      11216,11232,11307,11345,11352,11363,11366,11384,11480,11505,11523,11943,12093,
+                      12133,12268,12317,12434,12637,12685,12753,12756,12774,12792,12794,12795,12821,
+                      12823,12824,12826,12872,12886,12956,12957,12968,12969,12971,12988,12993,12999,
+                      13006,13010,13032,13034,13042,13046,13112,13424,13524,13851,13977,14222,14231,
+                      14475,14565,14609,14628,14785,14793,14824,14827,15032,15088,15139,15450,15574,
+                      15583,15949,15950,16010,16128,16154,16236,16256,16389,16427,16626,16637,16765,
+                      16772,16815,16817,16826),]
