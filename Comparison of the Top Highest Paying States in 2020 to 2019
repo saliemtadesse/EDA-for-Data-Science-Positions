@@ -1,0 +1,88 @@
+Final30 <- select(Analyst,-c("Salary_Hourly","Yearly","Average_salary","Company_rating"))
+Final30$Year <- 2020
+Final30$State <- as.character(Final30$State)
+Analyst19$Year <- 2019
+Final30 <- dplyr:: filter(Final30,trimws(State) == "NY"|trimws(State) == "ID"|trimws(State) == "CA"|trimws(State) == "GA"|trimws(State) == "WA")
+
+Analyst19 <- dplyr:: filter(Analyst19,trimws(State) == "NY"|trimws(State) == "ID"|trimws(State) == "CA"|trimws(State) == "GA"|trimws(State) == "WA")
+Final31 <- rbind(Final30,Analyst19)
+
+Final32 <- Final31 %>% group_by(Year,State) %>% 
+  summarise(Salary=median(Average_Salary,na.rm=TRUE)) 
+
+Final32$Year <- as.factor(Final32$Year)
+Final33 <- ggplot(data=Final32, aes(x=State, y=Salary, fill=Year)) +
+           geom_bar(stat="identity")+
+           geom_text(aes(label=Salary), size = 3, position = position_stack(vjust = 0.5))+
+           scale_fill_manual(values =c("#3282B8","#BBE1FA"))+
+           labs(title = "Data Analyst Salary Comparison (2019 & 2020)",x="State",y="Salary(1000)")+
+           theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))
+
+
+#Scientist
+Final34 <- select(Scientist,-c("Salary_Hourly","Yearly","Average_salary","Company_rating"))
+Final34$Year <- 2020
+Scientist19$Year <- 2019
+
+Final34 <- dplyr:: filter(Final34,trimws(State) == "NY"|trimws(State) == "ID"|trimws(State) == "CA"|trimws(State) == "GA"|trimws(State) == "WA")
+Scientist19 <- dplyr:: filter(Scientist19,trimws(State) == "NY"|trimws(State) == "ID"|trimws(State) == "CA"|trimws(State) == "GA"|trimws(State) == "WA")
+
+Final35 <- rbind(Final34,Scientist19)
+
+Final36 <- Final35 %>% group_by(Year,State) %>% 
+  summarise(Salary=median(Average_Salary,na.rm=TRUE)) 
+Final36$Year <- as.factor(Final36$Year)
+
+Final37 <- ggplot(data=Final36, aes(x=State, y=Salary, fill=Year)) +
+  geom_bar(stat="identity")+
+  geom_text(aes(label=Salary), size = 3, position = position_stack(vjust = 0.5))+
+  scale_fill_manual(values =c("#3282B8","#BBE1FA"))+
+  labs(title = "Data Scientist Salary Comparison (2019 & 2020)",x="State",y="Salary(1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))
+
+
+
+#Engineer
+Final38 <- select(Engineer,-c("Salary_Hourly","Yearly","Average_salary","Company_rating"))
+Final38$Year <- 2020
+Engineer19$Year <- 2019
+
+Final38 <- dplyr:: filter(Final38,trimws(State) == "DE"|trimws(State) == "MA"|trimws(State) == "CO"|trimws(State) == "MD"|trimws(State) == "NJ")
+Engineer19 <- dplyr:: filter(Engineer19,trimws(State) == "DE"|trimws(State) == "MA"|trimws(State) == "CO"|trimws(State) == "MD"|trimws(State) == "NJ")
+Final39 <- rbind(Final38,Engineer19)
+
+Final40 <- Final39 %>% group_by(Year,State) %>% 
+  summarise(Salary=median(Average_Salary,na.rm=TRUE)) 
+Final40$Year <- as.factor(Final40$Year)
+
+Final41 <- ggplot(data=Final40, aes(x=State, y=Salary, fill=Year)) +
+  geom_bar(stat="identity")+
+  geom_text(aes(label=Salary), size = 3, position = position_stack(vjust = 0.5))+
+  scale_fill_manual(values =c("#3282B8","#BBE1FA"))+
+  labs(title = "Data Engineer Salary Comparison (2019 & 2020)",x="State",y="Salary(1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))
+Final41
+
+
+#Modeler
+Final42 <- select(Modeler,-c("Salary_Hourly","Yearly","Average_salary","Company_rating"))
+Final42$Year <- 2020
+Modeler19$Year <- 2019
+
+Final42 <- dplyr:: filter(Final42,trimws(State) == "DE"|trimws(State) == "MA"|trimws(State) == "CO"|trimws(State) == "MD"|trimws(State) == "NJ")
+Modeler19 <- dplyr:: filter(Modeler19,trimws(State) == "DE"|trimws(State) == "MA"|trimws(State) == "CO"|trimws(State) == "MD"|trimws(State) == "NJ")
+Final43 <- rbind(Final42,Modeler19)
+
+Final44 <- Final43 %>% group_by(Year,State) %>% 
+  summarise(Salary=median(Average_Salary,na.rm=TRUE)) 
+Final44$Year <- as.factor(Final44$Year)
+
+Final45 <- ggplot(data=Final44, aes(x=State, y=Salary, fill=Year)) +
+  geom_bar(stat="identity")+
+  geom_text(aes(label=Salary), size = 3, position = position_stack(vjust = 0.5))+
+  scale_fill_manual(values =c("#3282B8","#BBE1FA"))+
+  labs(title = "Data Modeler Salary Comparison (2019 & 2020)",x="State",y="Salary(1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))
+
+Figure4 <- ggarrange(Final33,Final37,Final41,Final45,nrow =2,ncol = 2 ,common.legend = TRUE,legend = "bottom")
+Figure4
