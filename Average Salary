@@ -1,0 +1,18 @@
+# Histogram
+Final2$Yearly <- Final2$Average_Salary*Final2$Salary_Hourly # used observations that only contain annual pay
+
+Final5 <- ggplot(data=Final2,aes(x=Yearly)) + 
+          geom_histogram(bins=50, fill="#3282B8", col="gray8")+
+          labs(title="Average Salary",x="Average Salary (1000)",y="Count")+
+          theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())
+# Boxplot
+Final2$Average_salary <- "Average_salary"
+Final51<- ggplot(Final2,aes(x=Average_salary,y=Average_Salary))+
+  geom_boxplot(fill="#BBE1FA")+
+  labs(title = "Average Salary Boxplot",x="",y="Salary (1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())+
+  geom_jitter(width = 0.2)
+
+# Combine both plots
+Figure5 <- ggarrange(Final5,Final51,nrow =1,ncol = 2)
+Figure5
