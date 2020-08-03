@@ -1,0 +1,117 @@
+
+string <- Analyst$Job_Title
+pattern <- "Senior"
+Senior <- Analyst[grep(pattern,string),] # select senior analyst positions only
+Sr_Analyst <- Senior %>% summarise(Data_Analyst=median(Average_Salary,na.rm=TRUE))   
+
+string <- Analyst$Job_Title
+pattern <- "Junior"
+Junior <- Analyst[grep(pattern,string),]
+Jr_Analyst <- Junior %>% summarise(Data_Analyst=median(Average_Salary,na.rm=TRUE)) 
+
+string <- Analyst$Job_Title
+pattern <- "Director"
+Director <- Analyst[grep(pattern,string),]
+Dr_Analyst <- Director %>% summarise(Data_Analyst=median(Average_Salary,na.rm=TRUE))
+
+string <- Analyst$Job_Title
+pattern <- "Associate"
+Associate <- Analyst[grep(pattern,string),]
+As_Analyst <- Associate %>% summarise(Data_Analyst=median(Average_Salary,na.rm=TRUE))
+
+string <- Analyst$Job_Title
+pattern <- "Assistant"
+Assistant <- Analyst[grep(pattern,string),]
+At_Analyst <- Assistant %>% summarise(Data_Analyst=median(Average_Salary,na.rm=TRUE))
+
+#########
+#Scientist
+string <- Scientist$Job_Title
+pattern <- "Senior"
+Senior <- Scientist[grep(pattern,string),]
+Sr_Scientist <- Senior %>% summarise(Data_Scientist=median(Average_Salary,na.rm=TRUE))   
+
+string <- Scientist$Job_Title
+pattern <- "Junior"
+Junior <- Scientist[grep(pattern,string),]
+Jr_Scientist <- Junior %>% summarise(Data_Scientist=median(Average_Salary,na.rm=TRUE)) 
+
+string <- Scientist$Job_Title
+pattern <- "Director"
+Director <- Scientist[grep(pattern,string),]
+Dr_Scientist <- Director %>% summarise(Data_Scientist=median(Average_Salary,na.rm=TRUE))
+
+string <- Scientist$Job_Title
+pattern <- "Associate"
+Associate <- Scientist[grep(pattern,string),]
+As_Scientist <- Associate %>% summarise(Data_Scientist=median(Average_Salary,na.rm=TRUE))
+
+string <- Scientist$Job_Title
+pattern <- "Assistant"
+Assistant <- Scientist[grep(pattern,string),]
+At_Scientist <- Assistant %>% summarise(Data_Scientist=median(Average_Salary,na.rm=TRUE))
+
+#######
+#Engineer
+string <- Engineer$Job_Title
+pattern <- "Senior"
+Senior <- Engineer[grep(pattern,string),]
+Sr_Engineer <- Senior %>% summarise(Data_Engineer=median(Average_Salary,na.rm=TRUE))   
+
+string <- Engineer$Job_Title
+pattern <- "Junior"
+Junior <- Engineer[grep(pattern,string),]
+Jr_Engineer <- Junior %>% summarise(Data_Engineer=median(Average_Salary,na.rm=TRUE)) 
+
+string <- Engineer$Job_Title
+pattern <- "Director"
+Director <- Engineer[grep(pattern,string),]
+Dr_Engineer <- Director %>% summarise(Data_Engineer=median(Average_Salary,na.rm=TRUE))
+
+string <- Engineer$Job_Title
+pattern <- "Associate"
+Associate <- Engineer[grep(pattern,string),]
+As_Engineer <- Associate %>% summarise(Data_Engineer=median(Average_Salary,na.rm=TRUE))
+
+string <- Engineer$Job_Title
+pattern <- "Assistant"
+Assistant <- Engineer[grep(pattern,string),]
+At_Engineer <- Assistant %>% summarise(Data_Engineer=median(Average_Salary,na.rm=TRUE))
+
+#######
+#Modeler
+string <- Modeler$Job_Title
+pattern <- "Senior"
+Senior <- Modeler[grep(pattern,string),]
+Sr_Modeler <- Senior %>% summarise(Data_Modeler=median(Average_Salary,na.rm=TRUE))   
+
+string <- Modeler$Job_Title
+pattern <- "Junior"
+Junior <- Modeler[grep(pattern,string),]
+Jr_Modeler <- Junior %>% summarise(Data_Modeler=median(Average_Salary,na.rm=TRUE)) 
+
+string <- Modeler$Job_Title
+pattern <- "Director"
+Director <- Modeler[grep(pattern,string),]
+Dr_Modeler <- Director %>% summarise(Data_Modeler=median(Average_Salary,na.rm=TRUE))
+
+string <- Modeler$Job_Title
+pattern <- "Associate"
+Associate <- Modeler[grep(pattern,string),]
+As_Modeler <- Associate %>% summarise(Data_Modeler=median(Average_Salary,na.rm=TRUE))
+
+string <- Modeler$Job_Title
+pattern <- "Assistant"
+Assistant <- Modeler[grep(pattern,string),]
+At_Modeler <- Assistant %>% summarise(Data_Modeler=median(Average_Salary,na.rm=TRUE))
+
+Senior <- c(Sr_Analyst,Sr_Scientist,Sr_Engineer,Sr_Modeler)
+Junior <- c(Jr_Analyst,Jr_Scientist,Jr_Engineer,Jr_Modeler)
+Director <- c(Dr_Analyst,Dr_Scientist,Dr_Engineer,Dr_Modeler)
+Associate <- c(As_Analyst,As_Scientist,As_Engineer,As_Modeler)
+Assistant <- c(At_Analyst,At_Scientist,At_Engineer,At_Modeler)
+Data <- as.data.frame(rbind(Senior,Junior,Director,Associate,Assistant))     
+Tabel1 <- Data %>%
+          kable(escape = F,align = "c") %>%
+          kable_styling(c("striped","condensed"),full_width =FALSE)
+Tabel1
