@@ -1,0 +1,62 @@
+# read the file saved
+Final <- read_rds("Data-Raw-Total.RDS") 
+Final <- as.data.frame(Final)
+
+# Convert abrivations to maintain consistency
+Final$Job_Title <- gsub("Sr.","Senior",Final$Job_Title)
+Final$Job_Title <- gsub("Sr","Senior",Final$Job_Title)
+Final$Job_Title <- gsub("Jr","Junior",Final$Job_Title)
+Final$Job_Title <- gsub("dr","Director",Final$Job_Title)
+Final$Job_Title <- gsub("dr.","Director",Final$Job_Title)
+Final$Job_Title <- gsub("Dir,","Director",Final$Job_Title)
+
+# Separate City and State
+Final1 <- separate(Final,"City_State",paste(c("City","State")),sep = ",")
+
+#Remove un necessary characters and words
+Final1$salary_Range <- gsub("((Glassdoor est.))","",Final1$salary_Range)
+Final1$salary_Range <- gsub("K","",Final1$salary_Range)
+Final1$salary_Range <- gsub("\\(.*?)","",Final1$salary_Range) 
+Final1$salary_Range <- gsub("[$]","",Final1$salary_Range)
+Final1$Salary_Hourly <- ifelse(grepl("^.+(Per Hour)$",Final1$salary_Range),0,1)
+Final1$salary_Range <- gsub("Per Hour","",Final1$salary_Range)
+
+#Create a min and max salary variables
+Final2 <- separate(Final1,"salary_Range",paste(c("Minimum_Salary","Maximum_Salary")),sep = "-")
+Final2$Salary_Hourly <- as.numeric(Final1$Salary_Hourly)
+Final2$Minimum_Salary <- as.numeric(Final2$Minimum_Salary)
+Final2$Maximum_Salary <- as.numeric(Final2$Maximum_Salary)
+
+#Create average salary variable
+Final2$Average_Salary=(Final2$Minimum_Salary+Final2$Maximum_Salary)/2
+
+#Change the position posted in hours to a day 
+Final2$Post_Date = ifelse(grepl("h",Final2$Post_Date),1,parse_number(Final2$Post_Date))
+
+#changing names of states
+Final2$State = ifelse(grepl("Anne Arundel",Final2$State),"MD",Final2$State)
+Final2$State = ifelse(grepl("Arapahoe",Final2$State),"CO",Final2$State)
+Final2$State = ifelse(grepl("Clermont",Final2$State),"OH",Final2$State)
+Final2$State = ifelse(grepl("Cuyahoga",Final2$State),"OH",Final2$State)
+Final2$State = ifelse(grepl("Mercer",Final2$State),"NJ",Final2$State)
+Final2$State = ifelse(grepl("Johnson",Final2$State),"KS",Final2$State)
+Final2$State = ifelse(grepl("St. Louis",Final2$State),"MO",Final2$State)
+Final2$State = ifelse(grepl("Lake",Final2$State),"IL",Final2$State)
+Final2$State = ifelse(grepl("Campbell",Final2$State),"KY",Final2$State)
+
+# Removed duplicate states with no salary and rating data
+Final2 <- Final2[-c(3073,3094,3197,3258,3314,3322,3323,3343,3423,3443,3477,410,12594,12676,12972,
+                    5223,5379,5380,8631,10943,10964,10994,11070,11111,11156,11264,8,193,261,537,
+                    543,1066,1158,1296,1395,1627,1707,1715,2009,2036,2037,2787,2790,2815,2817,
+                    2871,2872,2874,2880,3002,3059,3179,3295,3345,3377,3944,3962,4168,4268,4287,
+                    4304,4393,4448,4606,4711,5046,5462,5856,5938,6025,6080,6092,6183,6410,7266,
+                    7466,7485,7577,7583,8487,8572,8590,8606,8607,8611,8628,8636,8653,8660,8668,
+                    8684,8705,8759,8772,8778,8806,8830,8831,8832,8835,8842,8843,8855,8859,8873,
+                    8885,8886,8888,8911,8912,8913,8925,8930,8942,8943,8945,8946,8952,8954,8973,
+                    8974,9016,9019,9021,9027,9057,9078,9104,9108,9116,9168,9170,9175,9176,9177,
+                    9179,9180,9181,9182,9183,9184,9186,9199,9216,9217,9218,9244,9245,9254,9255,
+                    9273,9274,9290,9294,9313,9342,9358,9365,9375,9379,9665,9806,9817,9852,10376,
+                    10484,10492,10514,10545,10778,11027,11062,11081,11307,11643,11896,12068,12079,
+                    12139,12158,12250,12308,12391,12522,12640,12739,12887,13052,13056,13170,13384,
+                    13385,13386,13510,13804,13867,13989,14015,14277,14439,14628,14964,15146,15155,
+                    15175,15189,15365,15431,15569,15669,15898,15978,15986),]
