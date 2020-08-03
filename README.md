@@ -51,3 +51,13 @@ Values that contain non relevant characters or other information were removed. I
 <img width="262" alt="Missing" src="https://user-images.githubusercontent.com/47319011/89211012-f9f9a980-d575-11ea-952a-ac7913678651.png">
 
 ### Average Salary
+<img width="832" alt="Screen Shot 2020-08-03 at 10 53 55 AM" src="https://user-images.githubusercontent.com/47319011/89212244-fcf59980-d577-11ea-9df4-9f434ec89f93.png">
+
+### Company Rating
+<img width="591" alt="Screen Shot 2020-08-03 at 10 57 27 AM" src="https://user-images.githubusercontent.com/47319011/89212413-3c23ea80-d578-11ea-8539-86e8df936e59.png">
+
+### Average Salary by Job Type
+<img width="894" alt="Screen Shot 2020-08-03 at 11 00 00 AM" src="https://user-images.githubusercontent.com/47319011/89212635-a3da3580-d578-11ea-914b-baa8a10e6505.png">
+
+### Salary by Seniority Level
+<img width="440" alt="Screen Shot 2020-08-03 at 11 02 50 AM" src="https://user-images.githubusercontent.com/47319011/89212790-f582c000-d578-11ea-8a7b-30642ee02422.png">
