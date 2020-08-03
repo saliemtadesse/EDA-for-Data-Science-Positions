@@ -7,7 +7,7 @@ Project Overview:
 # Contents:
 1. Data Scrapping
 2. Data 2020 Data
-**Exploratory Data Analysis:**
+#### Exploratory Data Analysis:
 3. Missing Values
 4. Average salary
 5. Company Rating
@@ -15,7 +15,7 @@ Project Overview:
 7. Counts by Job Type
 8. Salary by Seniority Level
 9. Job Count by State
-**Salary by Job Type by State:**
+#### Salary by Job Type by State:
 10. Data Analyst
 11. Data Scientist
 12. Data Engineer
@@ -31,7 +31,7 @@ Project Overview:
 * **R version:** 3.6.2
 * **Packages:** (httr, xml2, rvest, tidyverse, purrr, ggpubr, janitor, kableExtra, readr)
 * **Scrapper github**: https://github.com/chrisjkeeney/Glassdoor
-* **Scrapper Web:**https://www.rpubs.com/chrisjkeeney/Glassdoor
+* **Scrapper Web:** https://www.rpubs.com/chrisjkeeney/Glassdoor
 
 # Data Science position web Scrapping:
 This section portrays a step by step data scrapping approach. The scrapped data includes a total of 15,908 data science and related fields observationa and six variables:
