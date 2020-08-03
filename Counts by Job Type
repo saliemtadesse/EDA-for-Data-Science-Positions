@@ -1,0 +1,8 @@
+
+DataScience <- rbind(c("Data Scientist","Data Analyst","Data Engineer","Data Modeler","Data Entry"),
+                              c(3206,2802,2582,179,5))
+DataScience <- DataScience %>% row_to_names(row_number = 1)
+Tabel2 <- DataScience %>%
+          kable(escape = F,align = "c") %>%
+          kable_styling(c("striped","condensed"),full_width =FALSE)
+Tabel2
