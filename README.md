@@ -61,3 +61,30 @@ Values that contain non relevant characters or other information were removed. I
 
 ### Salary by Seniority Level
 <img width="440" alt="Screen Shot 2020-08-03 at 11 02 50 AM" src="https://user-images.githubusercontent.com/47319011/89212790-f582c000-d578-11ea-8a7b-30642ee02422.png">
+
+### Job Count by State
+<img width="923" alt="Screen Shot 2020-08-03 at 11 09 18 AM" src="https://user-images.githubusercontent.com/47319011/89213829-90c86500-d57a-11ea-92c9-8b4ac199cc1a.png">
+
+### Data Analyst Salary by State
+<img width="911" alt="Screen Shot 2020-08-03 at 11 09 38 AM" src="https://user-images.githubusercontent.com/47319011/89213902-b190ba80-d57a-11ea-8bf5-7f0bef64f87e.png">
+
+###  Data Scientist Salary by State
+<img width="921" alt="Screen Shot 2020-08-03 at 11 09 58 AM" src="https://user-images.githubusercontent.com/47319011/89213949-c3725d80-d57a-11ea-8cbd-05dc204278b0.png">
+
+### Data Engineer Salary by State
+<img width="928" alt="Screen Shot 2020-08-03 at 11 10 11 AM" src="https://user-images.githubusercontent.com/47319011/89214037-eac92a80-d57a-11ea-9009-6f4a00323e36.png">
+
+### Data Modeler Salary by State
+<img width="917" alt="Screen Shot 2020-08-03 at 11 10 29 AM" src="https://user-images.githubusercontent.com/47319011/89214129-15b37e80-d57b-11ea-9ae4-6ab5c1e4a1d8.png">
+
+### Average Salary by Job Type 2019
+<img width="910" alt="Screen Shot 2020-08-03 at 11 11 31 AM" src="https://user-images.githubusercontent.com/47319011/89214158-2663f480-d57b-11ea-98f0-badb8fe5c6ec.png">
+
+### Job Count Comparison 2019-2020
+<img width="922" alt="Screen Shot 2020-08-03 at 11 11 58 AM" src="https://user-images.githubusercontent.com/47319011/89214220-47c4e080-d57b-11ea-8172-9f06dd409400.png">
+
+### Percentage of Job Types
+<img width="878" alt="Screen Shot 2020-08-03 at 11 12 16 AM" src="https://user-images.githubusercontent.com/47319011/89214319-6fb44400-d57b-11ea-98b1-995cf0e09639.png">
+
+### Comparison of the Top Highest Paying States in 2020 to 2019
+
