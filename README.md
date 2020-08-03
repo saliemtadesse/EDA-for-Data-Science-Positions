@@ -35,7 +35,7 @@
 * **Scrapper Web:** https://www.rpubs.com/chrisjkeeney/Glassdoor
 
 # Data Science positions web Scrapping:
-This section portrays a step by step data scrapping approach. The scrapped data includes a total of 15,908 data science and related fields observationa and six variables:
+This section portrays a step by step data scrapping approach. The scrapped data includes a total of 15,908 data science and related fields observation and six variables:
 * Job Title
 * Company Name
 * City and State
