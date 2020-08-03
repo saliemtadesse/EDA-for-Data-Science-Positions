@@ -10,3 +10,4 @@ Tabel3 <- Missing_value %>%
           kable(escape = F,align = "c") %>%  
           kable_styling(c("striped","condensed"),full_width =FALSE)
 Tabel3
+![alt text](https://user-images.githubusercontent.com/47319011/89207877-4fcb5300-d570-11ea-979d-584635f7229e.png "Missing")
