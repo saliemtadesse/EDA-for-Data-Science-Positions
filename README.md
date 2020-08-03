@@ -46,4 +46,8 @@ This section portrays a step by step data scrapping approach. The scrapped data 
 # Data cleaning
 Values that contain non relevant characters or other information were removed. Inaddition, abbreviated words were converted in to a same format to keep consistency. For some observations the value of state was manually inserted by reffering to the stated city.On the other hand, 212 observation did not include state and salary values hence were removed from the data.
 
+# Exploratory Data Analysis
+### Missing Values Table
+<img width="262" alt="Missing" src="https://user-images.githubusercontent.com/47319011/89211012-f9f9a980-d575-11ea-952a-ac7913678651.png">
 
+### Average Salary
