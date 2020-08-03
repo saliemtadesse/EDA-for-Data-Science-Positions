@@ -1,0 +1,12 @@
+
+# Missing Values
+
+Missing <- data.frame(colSums(is.na(Final2))) # count of missing value by column
+Missing_value <- cbind(c("Variables","Job_Title","Company_Name","City","State",
+             "Company_Rating","Minimum_Salary","Maximum_Salary",
+             "Post_Date","Salary_Hourly","Average_Salary"),c("Missing_Value_Counts",0,0,0,0,1950,5172,5172,3144,0,5172))
+Missing_value <- Missing_value %>% row_to_names(row_number = 1)# to replace the column names assigned by the actual col names
+Tabel3 <- Missing_value %>%
+          kable(escape = F,align = "c") %>%  
+          kable_styling(c("striped","condensed"),full_width =FALSE)
+Tabel3
