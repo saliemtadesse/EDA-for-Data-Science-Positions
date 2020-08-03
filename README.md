@@ -87,4 +87,4 @@ Values that contain non relevant characters or other information were removed. I
 <img width="878" alt="Screen Shot 2020-08-03 at 11 12 16 AM" src="https://user-images.githubusercontent.com/47319011/89214319-6fb44400-d57b-11ea-98b1-995cf0e09639.png">
 
 ### Comparison of the Top Highest Paying States in 2020 to 2019
-
+<img width="832" alt="Screen Shot 2020-08-03 at 11 45 04 AM" src="https://user-images.githubusercontent.com/47319011/89216409-2f56c500-d57f-11ea-8611-f4db7cc00204.png">
