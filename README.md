@@ -6,7 +6,7 @@
  
 # Contents:
 1. Data Scrapping
-2. Data 2020 Data
+2. Cleaning 2020 Data
 #### Exploratory Data Analysis:
 3. Missing Values
 4. Average salary
