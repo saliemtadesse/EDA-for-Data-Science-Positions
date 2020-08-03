@@ -1,0 +1,9 @@
+library(httr)  #get HTML document: GET()
+library(xml2)  #Convert to XML document: read_html()
+library(rvest)  #select and extract text from XML: html_nodes(),html_txt & html_attr()
+library(tidyverse) # to load the core packages (ggplot,dplyr,readr)
+library(purrr)  #iterate scrapping and return data frame: map_df()
+library(ggpubr) #used for ggarrange
+library(janitor) # used for row_to_names
+library(kableExtra) #used to edit table
+library(readr) #read rds files
