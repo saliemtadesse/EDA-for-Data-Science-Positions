@@ -1,0 +1,11 @@
+
+Final16 <- Engineer %>% group_by(State) %>% 
+  summarise(Salary=median(Average_Salary,na.rm=TRUE)) 
+  
+Final17 <-ggplot(Final16, aes(x=reorder(State,Salary), y=Salary)) + 
+  geom_bar(fill="#3282B8", col="gray8", stat="identity", width=0.4) + 
+  geom_text(aes(label=round(Salary),vjust=-0.3)) + 
+  labs(title="Data Engineer Salary by State",x="States",y="Salary(1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())
+  
+Final17
