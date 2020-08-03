@@ -1,0 +1,12 @@
+
+Final3 <- Final2 %>% group_by(State) %>% 
+  count(Job_Title,name = "Jobs") %>% 
+  summarise(NumJobs=sum(Jobs)) 
+  
+Final4 <-ggplot(Final3, aes(x=reorder(State,NumJobs), y=NumJobs)) + 
+  geom_bar(fill="#3282B8", col="gray8", stat="identity", width=0.4) + 
+  geom_text(aes(label=NumJobs,vjust=-0.3)) + 
+  labs(title="Job-Count Per State",x="States",y="Number of Jobs")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())
+  
+Final4
