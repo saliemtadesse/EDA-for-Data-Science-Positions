@@ -20,6 +20,7 @@
 11. Data Scientist
 12. Data Engineer
 13. Data Modeler
+#### Data preparation for the year 2019 and analysis in comparison to 2020
 14. Cleaning 2019 Data
 15. Average Salary by Job Type 2019
 16. Job Count Comparison 2019-2020
@@ -33,7 +34,7 @@
 * **Scrapper github**: https://github.com/chrisjkeeney/Glassdoor
 * **Scrapper Web:** https://www.rpubs.com/chrisjkeeney/Glassdoor
 
-# Data Science position web Scrapping:
+# Data Science positions web Scrapping:
 This section portrays a step by step data scrapping approach. The scrapped data includes a total of 15,908 data science and related fields observationa and six variables:
 * Job Title
 * Company Name
