@@ -1,5 +1,5 @@
 # Glassdoor Exploratory Data Analysis
-Comaprison of Data Science Positions Before and During Covid-19
+**_Comaprison of Data Science Positions Before and During Covid-19_**
 
 **Project Overview:**
  This project puts an insight in to the available data science positions, compares job counts and salary across states, finally compares data science positions to the year 2019.The data for the data science positions was scrapped from glassdoor website, after that the data was cleaned and organized to conduct exploratory data analysis.
