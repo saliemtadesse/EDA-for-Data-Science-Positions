@@ -1,0 +1,18 @@
+# Histogram
+Final2$Company_Rating <- as.numeric(Final2$Company_Rating)
+Final6 <- ggplot(data=Final2,aes(x=Company_Rating)) + 
+  geom_histogram(bins=50, fill="#3282B8", col="gray8")+
+  labs(title="Company Rating",x="Company Rating",y="Count")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())
+
+#Boxplot
+Final2$Company_rating <- "Company_rating"
+Final61<- ggplot(Final2,aes(x=Company_rating,y=Company_Rating))+
+  geom_boxplot(fill="#BBE1FA")+
+  labs(title = "Company Rating Boxplot",x="",y="Rating")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())+
+  geom_jitter(width = 0.2)
+  
+#Combine plots
+Figure7 <- ggarrange(Final6,Final61,nrow =1,ncol = 2)
+Figure7
