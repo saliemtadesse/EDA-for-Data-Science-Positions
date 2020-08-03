@@ -1,4 +1,6 @@
-# The first step is to obtain element names
+# The first step is obtain the node and nodes of the variable that we are interested in using the selectorGadget 
+# and then create a name for the elements as described below.
+
 CSSjobct <- ".jobsCount"
 CSSjobtitle <- ".jobHeader+ .jobTitle"
 CSScompany <- ".jobEmpolyerName"
@@ -8,7 +10,8 @@ CSSsalary <- ".salary"
 CSStime <- ".css-65p68w"
 CSSsize <- ".infoEntity:nth-child(2)"
 
-#Converting the text file Glassdoor_State_Links to list
+# To avoid the difficulty of searching across the different states, the link for each state was 
+# compiled in to a single text file and then was converted in to a list.
 URLstate <- read_tsv("Glassdoor-State-Link.txt", col_names = F)
 URLstate <- as.list(URLstate$X1)
 URLjob <- paste0(URLstate,".htm")
@@ -27,13 +30,9 @@ totPages <- lapply(totJobs,function(i){as.integer(min(ceiling(i/30),30))})
 rm(totJobs)
 
 # Loop along each state link to create the pages link
-#URLall <- Map(function(i,j)paste0(i,"_IP",seq(j),".htm"),test2,maxRes)
 URLall <- lapply(seq_along(URLstate), function(i) paste0(URLstate[[i]], "_IP", seq_len(totPages[[i]]),".htm"))
 URLall <- unlist(URLall)
 URLall
-# Save it just to be safe
-saveRDS(URLall,file = "ALL-GlassDoor-Data-Science-URLS.Rds")
-
 
 ### Pull the individual elements into a dataframe
 GD_Scraper <-function(x=1:100) {map_df(x, function(i) {
@@ -61,7 +60,7 @@ GD_Scraper <-function(x=1:100) {map_df(x, function(i) {
 }) }
 
 
-# Do the pings as a batch to prevent errors
+# Do the scrapping in parts to prevent errors
 data.raw1 <- GD_Scraper(1:100)
 data.raw2 <- GD_Scraper(101:200)
 data.raw3 <- GD_Scraper(201:300)
