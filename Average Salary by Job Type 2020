@@ -1,0 +1,47 @@
+# Creating a dataframe for each job type
+string <- Final2$Job_Title
+pattern <- "Data Analyst"
+Analyst <- Final2[grep(pattern,string),] #regular expression to extract job titles that contain data analyst
+Analyst$Job <- "Data Analyst"
+
+string <- Final2$Job_Title
+pattern <- "Data Scientist"
+Scientist <- Final2[grep(pattern,string),]
+Scientist$Job <- "Data Scientist"
+
+string <- Final2$Job_Title
+pattern <- "Data Engineer"
+Engineer <- Final2[grep(pattern,string),]
+Engineer$Job <- "Data Engineer"
+
+string <- Final2$Job_Title
+pattern <- "Data Modeler"
+Modeler <- Final2[grep(pattern,string),]
+Modeler$Job <- "Data Modeler"
+
+Final7<- ggplot(Analyst,aes(x=Job,y=Average_Salary))+
+  geom_boxplot(fill="#BBE1FA")+
+  labs(title = "Data Analyst",x="Job",y="Salary (1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))+
+  geom_jitter(width = 0.2)
+
+Final8<- ggplot(Scientist,aes(x=Job,y=Average_Salary))+
+  geom_boxplot(fill="#BBE1FA")+
+  labs(title = "Data Scientist",x="Job",y="Salary (1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))+
+  geom_jitter(width = 0.2)
+
+Final9<- ggplot(Engineer,aes(x=Job,y=Average_Salary))+
+  geom_boxplot(fill="#BBE1FA")+
+  labs(title = "Data Engineer",x="Job",y="Salary (1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))+
+  geom_jitter(width = 0.2)
+
+Final10<- ggplot(Modeler,aes(x=Job,y=Average_Salary))+
+  geom_boxplot(fill="#BBE1FA")+
+  labs(title = "Data Modeler",x="Job",y="Salary (1000)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))+
+  geom_jitter(width = 0.2)
+
+Figure1 <- ggarrange(Final7,Final8,Final9,Final10,ncol=2,nrow=2)
+Figure1
