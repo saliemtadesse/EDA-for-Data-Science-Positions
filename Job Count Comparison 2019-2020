@@ -1,0 +1,20 @@
+
+Data20 <- rbind(Analyst,Scientist,Engineer,Modeler)
+Data20$Year <- 2020
+
+Data20 <- select(Data20,-c("Salary_Hourly","Yearly","Average_salary","Company_rating"))
+Data21 <- rbind(Analyst19,Scientist19,Engineer19,Modeler19)
+Data21$Year <- 2019
+
+Data22 <- rbind(Data20,Data21)
+Data22$Count <- 1
+Data22$Year <- as.factor(Data22$Year) # to convert the continous legend colour to discrete
+Data23 <- Data22 %>% group_by(Job,Year)%>% summarise(NumJob=sum(Count))
+
+Final27 <- ggplot(data=Data23, aes(x=Job, y=NumJob, fill=Year)) +
+          geom_bar(stat="identity")+
+          geom_text(aes(label=NumJob), size = 3, position = position_stack(vjust = 0.5))+
+          scale_fill_manual(values =c("#3282B8","#BBE1FA"))+
+          labs(title = "Data Science Jobs Comparison (2019 & 2020)",x="Job Type",y="Count")+
+          theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))
+Final27
